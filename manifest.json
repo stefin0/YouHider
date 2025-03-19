@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "YouHider",
+    "version": "0.0.1",
+    "description": "Toggle hiding of YouTube view counts via a page action popup.",
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ],
+    "page_action": {
+        "default_icon": {
+            "19": "icons/YouHider-19.png",
+            "38": "icons/YouHider-38.png"
+        },
+        "default_title": "YouHider",
+        "default_popup": "popup/popup.html",
+        "show_matches": [
+            "*://*.youtube.com/*"
+        ]
+    }
+}
