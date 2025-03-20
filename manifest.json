@@ -1,21 +1,27 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "YouHider",
-    "version": "0.0.1",
-    "description": "Toggle hiding of YouTube view counts via a page action popup.",
+    "version": "0.1.0",
+    "description": "Hide YouTube distractions.",
     "permissions": [
-        "activeTab",
-        "tabs"
+        "scripting",
+        "storage"
     ],
-    "page_action": {
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "type": "module"
+    },
+    "host_permissions": [
+        "*://*.youtube.com/*"
+    ],
+    "action": {
         "default_icon": {
-            "19": "icons/YouHider-19.png",
-            "38": "icons/YouHider-38.png"
+            "16": "icons/YouHider-16.png",
+            "32": "icons/YouHider-32.png"
         },
-        "default_title": "YouHider",
-        "default_popup": "popup/popup.html",
-        "show_matches": [
-            "*://*.youtube.com/*"
-        ]
+        "default_popup": "popup/youhider.html",
+        "default_title": "YouHider"
     }
 }

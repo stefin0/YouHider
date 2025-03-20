@@ -1,1 +1,3 @@
 # YouHider
+
+Hide YouTube distractions.
