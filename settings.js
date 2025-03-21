@@ -1,4 +1,4 @@
-import { HIDE_VIEWS_CSS, HIDE_LIKES_CSS } from "./constants.js";
+import { HIDE_VIEWS_CSS, HIDE_SHORTS_CSS, HIDE_LIKES_CSS } from "./constants.js";
 
 export const settings = [
     {
@@ -10,5 +10,10 @@ export const settings = [
         key: "isHiddenLikes",
         checkboxId: "hide-likes-checkbox",
         css: HIDE_LIKES_CSS
+    },
+    {
+        key: "isHiddenShorts",
+        checkboxId: "hide-shorts-checkbox",
+        css: HIDE_SHORTS_CSS
     },
 ];
