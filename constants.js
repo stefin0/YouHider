@@ -1,8 +1,8 @@
 // /* page, location, [note]  */
 export const HIDE_VIEWS_CSS = `
-    #metadata-line > span.inline-metadata-item:first-of-type, /* watch, recommended */
+    #metadata-line.ytd-video-meta-block > span.inline-metadata-item:not(:only-of-type):first-of-type, /* search & watch, recommended, still keep date for scheduled videos */
     #metadata-line.ytd-video-meta-block > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, the dot between views and date */
-    ytd-watch-info-text:not([detailed]) #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description */
+    #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description */
     #view-count, /* watch, description, newly fetched views every 5 min */
     .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
     .ytp-videowall-still-info-author, /* watch, video, on hover */
@@ -11,7 +11,8 @@ export const HIDE_VIEWS_CSS = `
     }`;
 
 export const HIDE_LIKES_CSS = `
-    .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz /* watch, rating */ { 
+    .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
+    #like-button.ytd-like-button-renderer .yt-core-attributed-string--word-wrapping /* shorts, rating */ {
         display: none !important;
     }`;
 
