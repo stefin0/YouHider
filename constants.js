@@ -24,32 +24,41 @@ export const HIDE_LIKES_CSS = `
         display: none !important;
     }`;
 
+export const HIDE_PLAYABLES_CSS = `
+    ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-mini-game-card-shelf]), /* home, playables */
+    a[title="Playables"], /* home, left sidebar link */
+    ytd-browse[page-subtype="playables"], /* playables, entire page */
+    ytd-browse[page-subtype="mini_app"] /* playables, game */ {
+        display: none !important;
+    }`;
+
 export const HIDE_RELATEDVIDEOS_CSS = `
     #related.style-scope.ytd-watch-flexy /* watch, related videos */ {
         display: none !important;
     }`;
 
 export const HIDE_SHORTS_CSS = `
-    ytd-rich-shelf-renderer[standard-shelf-margins][is-shorts][is-show-more-hidden][is-show-less-hidden][is-truncated] #dismissible.ytd-rich-shelf-renderer, /* home, recommended */
-    #title-container.ytd-reel-shelf-renderer, /* search & watch, recommended */
-    #contents.ytd-reel-shelf-renderer, /* search & watch, recommended */
-    ytd-reel-shelf-renderer.ytd-item-section-renderer /* search & watch, recommended */ {
+    ytd-rich-shelf-renderer[is-shorts], /* home, recommended */
+    ytd-reel-shelf-renderer, /* search & watch, recommended */ 
+    a[title="Shorts"], /* home, left sidebar link */
+    #shorts-container /* shorts, video */ {
         display: none !important;
     }`;
 
+// views, watching, waiting, none-waiting
 export const HIDE_VIEWS_CSS = `
-    #metadata-line.ytd-video-meta-block > span.inline-metadata-item:not(:only-of-type):first-of-type, /* search & watch, recommended, still keep date for scheduled videos */
-    #metadata-line.ytd-video-meta-block > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
-    ytd-watch-info-text[view-count-props*='"numberText":""'] #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description, live stream & regular video related */
-    #dismissible:has(ytd-thumbnail[is-live-video]) #metadata-line span.ytd-video-meta-block, /* live, content, remove live viewers */
+    #metadata-line > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
+    ytd-watch-info-text[view-count-props*='"numberText":""'] yt-formatted-string#info > span:nth-child(-n+2), /* watch, description, live stream & regular video related */
+    #dismissible:has(ytd-thumbnail[is-live-video]) #metadata-line > span:first-of-type, /* live, metadata-line, hide watching */
+    #dismissible:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style]) #metadata-line > span:first-of-type:not(:only-of-type), /* live, metadata-line, hide waiting */
+    ytd-video-meta-block:not([rich-meta]) #metadata-line > span:first-of-type, /* search, metadata-line, videos w/o relative timestamp (music) */
     #view-count, /* watch, description, newly fetched views every 5 min */
     #live-viewers-count, /* gaming, grid-carousel-content */
     #metadata-line.ytd-grid-video-renderer span.ytd-grid-video-renderer:first-of-type, /* trending, grid-carousel-content */
     #metadata-line.ytd-grid-video-renderer > .ytd-grid-video-renderer:not(:first-of-type)::before, /* trending, grid-carousel-content, dot between views and date */
-    .ytd-watch-info-text #tooltip, /* watch, description, hide views when hovering over desc */
+    ytd-watch-info-text #tooltip, /* watch, description, hide views when hovering over desc */
     .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
     .ytp-videowall-still-info-author, /* watch, video, on hover */
     .subtitle.ytd-watch-card-compact-video-renderer /* search, sidebar, only on big enough screens */ { 
         display: none !important;
     }`;
-

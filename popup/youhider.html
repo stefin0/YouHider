@@ -3,31 +3,49 @@
 
 <head>
     <meta charset="utf-8">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        fieldset {
+            display: grid;
+            border: none;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body style="font-family: sans-serif;">
-    <fieldset style="display: grid;">
+<body>
+    <fieldset>
         <legend>Metrics</legend>
-        <label title="Hides video views and live watchers.">
+        <label title="Hides views, watching, and waiting count.">
             <input type="checkbox" id="hide-views-checkbox" />
             Hide Views
         </label>
-        <label title="Hides likes for video and comments.">
+        <label title="Hides like count for videos and comments.">
             <input type="checkbox" id="hide-likes-checkbox" />
             Hide Likes
         </label>
-        <label title="Hides comment count for video and comments.">
+        <label title="Hides comment count for videos and comments.">
             <input type="checkbox" id="hide-commentcount-checkbox" />
             Hide Comment Count
         </label>
     </fieldset>
-    <fieldset style="display: grid;">
+    <fieldset>
         <legend>Content</legend>
-        <label title="Hides shorts.">
+        <label title="Hides Shorts from feeds and sections.">
             <input type="checkbox" id="hide-shorts-checkbox" />
             Hide Shorts
         </label>
-        <label title="Hides home feed.">
+        <label title="Hides Playables from feeds and sections.">
+            <input type="checkbox" id="hide-playables-checkbox" />
+            Hide Playables
+        </label>
+        <label title="Hides Home Feed.">
             <input type="checkbox" id="hide-homefeed-checkbox" />
             Hide Home Feed
         </label>
