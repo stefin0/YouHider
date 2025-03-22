@@ -1,13 +1,18 @@
 import {
-    HIDE_HOMEPAGE_CSS, HIDE_LIKES_CSS, HIDE_RELATEDVIDEOS_CSS, HIDE_SHORTS_CSS,
-    HIDE_VIEWS_CSS,
+    HIDE_COMMENTCOUNT_CSS, HIDE_HOMEFEED_CSS, HIDE_LIKES_CSS,
+    HIDE_RELATEDVIDEOS_CSS, HIDE_SHORTS_CSS, HIDE_VIEWS_CSS,
 } from "./constants.js";
 
 export const settings = [
     {
+        key: "isHiddenCommentCount",
+        checkboxId: "hide-commentcount-checkbox",
+        css: HIDE_COMMENTCOUNT_CSS
+    },
+    {
         key: "isHiddenHomePage",
-        checkboxId: "hide-homepage-checkbox",
-        css: HIDE_HOMEPAGE_CSS
+        checkboxId: "hide-homefeed-checkbox",
+        css: HIDE_HOMEFEED_CSS
     },
     {
         key: "isHiddenLikes",

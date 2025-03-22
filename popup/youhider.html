@@ -5,29 +5,37 @@
     <meta charset="utf-8">
 </head>
 
-<body>
-    <div style="display: grid;">
-        <label>
+<body style="font-family: sans-serif;">
+    <fieldset style="display: grid;">
+        <legend>Metrics</legend>
+        <label title="Hides video views and live watchers.">
             <input type="checkbox" id="hide-views-checkbox" />
             Hide Views
         </label>
-        <label>
+        <label title="Hides likes for video and comments.">
             <input type="checkbox" id="hide-likes-checkbox" />
             Hide Likes
         </label>
-        <label>
+        <label title="Hides comment count for video and comments.">
+            <input type="checkbox" id="hide-commentcount-checkbox" />
+            Hide Comment Count
+        </label>
+    </fieldset>
+    <fieldset style="display: grid;">
+        <legend>Content</legend>
+        <label title="Hides shorts.">
             <input type="checkbox" id="hide-shorts-checkbox" />
             Hide Shorts
         </label>
-        <label>
-            <input type="checkbox" id="hide-homepage-checkbox" />
-            Hide Home Page
+        <label title="Hides home feed.">
+            <input type="checkbox" id="hide-homefeed-checkbox" />
+            Hide Home Feed
         </label>
-        <label>
+        <label title="Hides videos displayed around the currently playing video.">
             <input type="checkbox" id="hide-relatedvideos-checkbox" />
             Hide Related Videos
         </label>
-    </div>
+    </fieldset>
     <script type="module" src="youhider.js"></script>
 </body>
 
