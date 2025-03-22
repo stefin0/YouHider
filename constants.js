@@ -6,7 +6,14 @@ export const HIDE_HOMEPAGE_CSS = `
 
 export const HIDE_LIKES_CSS = `
     .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
+    button[title="I like this"] > .yt-spec-button-shape-next__button-text-content, /* watch, rating */
+    #vote-count-middle.ytd-comment-engagement-bar, /* watch, comments */
     #like-button.ytd-like-button-renderer .yt-core-attributed-string--word-wrapping /* shorts, rating */ {
+        display: none !important;
+    }`;
+
+export const HIDE_RELATEDVIDEOS_CSS = `
+    #related.style-scope.ytd-watch-flexy /* watch, related videos */ {
         display: none !important;
     }`;
 
@@ -23,6 +30,7 @@ export const HIDE_VIEWS_CSS = `
     #metadata-line.ytd-video-meta-block > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, the dot between views and date */
     #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description */
     #view-count, /* watch, description, newly fetched views every 5 min */
+    .ytd-watch-info-text #tooltip, /* watch, description, hide views when hovering over desc */
     .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
     .ytp-videowall-still-info-author, /* watch, video, on hover */
     .subtitle.ytd-watch-card-compact-video-renderer /* search, sidebar, only on big enough screens */ { 

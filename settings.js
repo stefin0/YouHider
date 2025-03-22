@@ -1,5 +1,6 @@
 import {
-    HIDE_HOMEPAGE_CSS, HIDE_LIKES_CSS, HIDE_SHORTS_CSS, HIDE_VIEWS_CSS,
+    HIDE_HOMEPAGE_CSS, HIDE_LIKES_CSS, HIDE_RELATEDVIDEOS_CSS, HIDE_SHORTS_CSS,
+    HIDE_VIEWS_CSS,
 } from "./constants.js";
 
 export const settings = [
@@ -12,6 +13,11 @@ export const settings = [
         key: "isHiddenLikes",
         checkboxId: "hide-likes-checkbox",
         css: HIDE_LIKES_CSS
+    },
+    {
+        key: "isHiddenRelatedVideos",
+        checkboxId: "hide-relatedvideos-checkbox",
+        css: HIDE_RELATEDVIDEOS_CSS
     },
     {
         key: "isHiddenShorts",
