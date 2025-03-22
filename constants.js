@@ -11,7 +11,8 @@ export const HIDE_COMMENTCOUNT_CSS = `
     }`;
 
 export const HIDE_HOMEFEED_CSS = `
-    ytd-browse[page-subtype="home"] /* home, main content */ {
+    ytd-browse[page-subtype="home"], /* home, main content */
+    a[title="Home"] /* home, left sidebar link */ {
         display: none !important;
     }`;
 

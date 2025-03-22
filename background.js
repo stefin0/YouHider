@@ -1,5 +1,4 @@
 import { settings } from "./settings.js";
-import { insertCSSHelper } from "./utils.js";
 
 browser.tabs.onUpdated.addListener(async (tabId) => {
     const stored = await browser.storage.local.get(
@@ -8,7 +7,14 @@ browser.tabs.onUpdated.addListener(async (tabId) => {
 
     for (const setting of settings) {
         if (stored[setting.key]) {
-            await insertCSSHelper(tabId, setting.css);
+            try {
+                await browser.scripting.insertCSS({
+                    target: { tabId: tabId },
+                    css: setting.css
+                });
+            } catch (err) {
+                console.error(`failed to insert CSS: ${err}`);
+            }
         }
     }
 });

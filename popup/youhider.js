@@ -1,5 +1,4 @@
 import { settings } from "../settings.js";
-import { insertCSSHelper, removeCSSHelper } from "../utils.js";
 
 (async () => {
     const stored = await browser.storage.local.get(
@@ -16,9 +15,23 @@ import { insertCSSHelper, removeCSSHelper } from "../utils.js";
             const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
 
             if (state) {
-                await insertCSSHelper(tab.id, setting.css);
+                try {
+                    await browser.scripting.insertCSS({
+                        target: { tabId: tab.id },
+                        css: setting.css
+                    });
+                } catch (err) {
+                    console.error(`failed to insert CSS: ${err}`);
+                }
             } else {
-                await removeCSSHelper(tab.id, setting.css);
+                try {
+                    await browser.scripting.removeCSS({
+                        target: { tabId: tab.id },
+                        css: setting.css
+                    });
+                } catch (err) {
+                    console.error(`failed to remove CSS: ${err}`);
+                }
             }
         });
     }

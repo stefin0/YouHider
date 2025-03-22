@@ -11,7 +11,7 @@ export const settings = [
         css: HIDE_COMMENTCOUNT_CSS
     },
     {
-        key: "isHiddenHomePage",
+        key: "isHiddenHomeFeed",
         checkboxId: "hide-homefeed-checkbox",
         css: HIDE_HOMEFEED_CSS
     },
