@@ -1,12 +1,6 @@
-// /* page, location, [note]  */
-export const HIDE_VIEWS_CSS = `
-    #metadata-line.ytd-video-meta-block > span.inline-metadata-item:not(:only-of-type):first-of-type, /* search & watch, recommended, still keep date for scheduled videos */
-    #metadata-line.ytd-video-meta-block > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, the dot between views and date */
-    #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description */
-    #view-count, /* watch, description, newly fetched views every 5 min */
-    .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
-    .ytp-videowall-still-info-author, /* watch, video, on hover */
-    .subtitle.ytd-watch-card-compact-video-renderer /* search, sidebar, only on big enough screens */ { 
+// CSS comments explanation: /* page, location, [note]  */
+export const HIDE_HOMEPAGE_CSS = `
+    ytd-browse[page-subtype="home"] /* home, main content */ {
         display: none !important;
     }`;
 
@@ -23,3 +17,15 @@ export const HIDE_SHORTS_CSS = `
     ytd-reel-shelf-renderer.ytd-item-section-renderer /* search & watch, recommended */ {
         display: none !important;
     }`;
+
+export const HIDE_VIEWS_CSS = `
+    #metadata-line.ytd-video-meta-block > span.inline-metadata-item:not(:only-of-type):first-of-type, /* search & watch, recommended, still keep date for scheduled videos */
+    #metadata-line.ytd-video-meta-block > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, the dot between views and date */
+    #info.ytd-watch-info-text > span:nth-child(-n+2), /* watch, description */
+    #view-count, /* watch, description, newly fetched views every 5 min */
+    .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
+    .ytp-videowall-still-info-author, /* watch, video, on hover */
+    .subtitle.ytd-watch-card-compact-video-renderer /* search, sidebar, only on big enough screens */ { 
+        display: none !important;
+    }`;
+
