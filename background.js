@@ -1,14 +1,14 @@
 import { settings } from "./settings.js";
 
-browser.tabs.onUpdated.addListener(async (tabId) => {
-    const stored = await browser.storage.local.get(
+chrome.tabs.onUpdated.addListener(async (tabId) => {
+    const stored = await chrome.storage.local.get(
         settings.map((s) => s.key)
     );
 
     for (const setting of settings) {
         if (stored[setting.key]) {
             try {
-                await browser.scripting.insertCSS({
+                await chrome.scripting.insertCSS({
                     target: { tabId: tabId },
                     css: setting.css
                 });

@@ -1,13 +1,14 @@
 {
     "manifest_version": 3,
     "name": "YouHider",
-    "version": "0.3.1",
+    "version": "0.8.1",
     "description": "Hide YouTube distractions.",
     "permissions": [
         "scripting",
         "storage"
     ],
     "background": {
+        "service_worker": "background.js",
         "scripts": [
             "background.js"
         ],

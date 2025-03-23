@@ -1,7 +1,7 @@
 import { settings } from "../settings.js";
 
 (async () => {
-    const stored = await browser.storage.local.get(
+    const stored = await chrome.storage.local.get(
         settings.map((s) => s.key)
     );
 
@@ -11,12 +11,12 @@ import { settings } from "../settings.js";
 
         checkbox.addEventListener("change", async function() {
             const state = this.checked;
-            await browser.storage.local.set({ [setting.key]: state });
-            const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+            await chrome.storage.local.set({ [setting.key]: state });
+            const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
             if (state) {
                 try {
-                    await browser.scripting.insertCSS({
+                    await chrome.scripting.insertCSS({
                         target: { tabId: tab.id },
                         css: setting.css
                     });
@@ -25,7 +25,7 @@ import { settings } from "../settings.js";
                 }
             } else {
                 try {
-                    await browser.scripting.removeCSS({
+                    await chrome.scripting.removeCSS({
                         target: { tabId: tab.id },
                         css: setting.css
                     });
