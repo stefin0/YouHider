@@ -19,9 +19,12 @@ export const HIDE_HOMEFEED_CSS = `
 export const HIDE_LIKES_CSS = `
     .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
     button[title="I like this"] > .yt-spec-button-shape-next__button-text-content, /* watch, rating */
-    #vote-count-middle.ytd-comment-engagement-bar, /* watch, comments */
+    #vote-count-middle, /* watch, comments */
     #vote-count-middle.ytd-comment-action-buttons-renderer, /* search, latest posts */
-    #like-button.ytd-like-button-renderer .yt-core-attributed-string--word-wrapping /* shorts, rating */ {
+    #like-button.ytd-like-button-renderer .yt-core-attributed-string--word-wrapping, /* shorts, rating */
+
+    /* 9-15-2025 */
+    like-button-view-model .yt-spec-button-shape-next__button-text-content /* watch, rating */ {
         display: none !important;
     }`;
 
@@ -42,7 +45,10 @@ export const HIDE_SHORTS_CSS = `
     ytd-rich-shelf-renderer[is-shorts], /* home, recommended */
     ytd-reel-shelf-renderer, /* search & watch, recommended */ 
     a[title="Shorts"], /* home, left sidebar link */
-    #shorts-container /* shorts, video */ {
+    #shorts-container, /* shorts, video */
+
+    /* 9-18-2025 */
+    grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2, ytm-shorts-lockup-view-model) /* search, main */ {
         display: none !important;
     }`;
 
@@ -60,6 +66,14 @@ export const HIDE_VIEWS_CSS = `
     ytd-watch-info-text #tooltip, /* watch, description, hide views when hovering over desc */
     .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
     .ytp-videowall-still-info-author, /* watch, video, on hover */
-    .subtitle.ytd-watch-card-compact-video-renderer /* search, sidebar, only on big enough screens */ { 
+    .subtitle.ytd-watch-card-compact-video-renderer, /* search, sidebar, only on big enough screens */
+
+    /* 9-18-2025 */
+    ytd-rich-item-renderer .yt-content-metadata-view-model__metadata-row:has(.yt-content-metadata-view-model__delimiter) > span:first-child, /* home, metadata-line */
+    ytd-rich-item-renderer .yt-content-metadata-view-model__delimiter, /* home, metadata-line, dot between views and date posted */
+    yt-lockup-metadata-view-model .yt-content-metadata-view-model__metadata-row:has(.yt-content-metadata-view-model__delimiter) > span:first-child, /* watch, recommended videos */
+    yt-lockup-metadata-view-model .yt-content-metadata-view-model__delimiter, /* watch, recommended videos metadata-line, dot between views and date posted */
+    ytd-watch-info-text:has(#view-count) #info > span:first-child, /* watch, main video metadata-line */
+    ytd-watch-info-text:has(#view-count) #info > span:first-child + span /* watch, main video metadata-line, whitespace after view count */ { 
         display: none !important;
     }`;
