@@ -24,6 +24,12 @@ export const HIDE_COMMENTCOUNT_CSS = `
         margin-left: -8px;
     }`;
 
+export const HIDE_ENDSCREEN = `
+    .html5-endscreen, /* watch, end of video */
+    ytd-player [class^="ytp-ce"] /* watch, near end of video */ {
+        display: none !important;
+    }`;
+
 export const HIDE_HOMEFEED_CSS = `
     ytd-browse[page-subtype="home"], /* home, main content */
     a[title="Home"] /* home, left sidebar link */ {
@@ -53,10 +59,11 @@ export const HIDE_LIVECHAT_CSS = `
     }`;
 
 export const HIDE_PLAYABLES_CSS = `
-    ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-mini-game-card-shelf]), /* home, playables */
-    a[title="Playables"], /* home, left sidebar link */
     ytd-browse[page-subtype="playables"], /* playables, entire page */
-    ytd-browse[page-subtype="mini_app"] /* playables, game */ {
+    ytd-browse[page-subtype="mini_app"], /* playables, game */ 
+
+    ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-mini-game-card-shelf]), /* home, playables */
+    a[title="Playables"] /* home, left sidebar link */ {
         display: none !important;
     }`;
 
@@ -66,13 +73,16 @@ export const HIDE_RELATEDVIDEOS_CSS = `
     }`;
 
 export const HIDE_SHORTS_CSS = `
+    ytd-shorts, /* shorts, video */
+
     ytd-rich-shelf-renderer[is-shorts], /* home, recommended */
     ytd-reel-shelf-renderer, /* search & watch, recommended */ 
     a[title="Shorts"], /* home, left sidebar link */
-    #shorts-container, /* shorts, video */
 
     /* 9-18-2025 */
     grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2, ytm-shorts-lockup-view-model), /* search, main */ 
+    ytd-video-renderer:has(a[href^="/shorts/"]), /* search, main, shorts disguised as normal videos */
+    ytm-shorts-lockup-view-model-v2, /* channel, short section */
     yt-tab-shape[tab-title="Shorts"] /* channel, tab-nav */ {
         display: none !important;
     }`;

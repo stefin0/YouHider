@@ -1,5 +1,6 @@
 import {
   HIDE_COMMENTCOUNT_CSS,
+  HIDE_ENDSCREEN,
   HIDE_HOMEFEED_CSS,
   HIDE_LIKES_CSS,
   HIDE_LIVECHAT_CSS,
@@ -14,6 +15,11 @@ export const settings = [
     key: "isHiddenCommentCount",
     checkboxId: "hide-commentcount-checkbox",
     css: HIDE_COMMENTCOUNT_CSS,
+  },
+  {
+    key: "isHiddenEndscreen",
+    checkboxId: "hide-endscreen-checkbox",
+    css: HIDE_ENDSCREEN,
   },
   {
     key: "isHiddenHomeFeed",
