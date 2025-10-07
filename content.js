@@ -7,18 +7,25 @@ function updateStyles(css) {
   if (!styleElement) {
     styleElement = document.createElement("style");
     styleElement.id = "youhider-styles";
-
-    const observer = new MutationObserver(() => {
-      if (document.head) {
-        document.head.appendChild(styleElement);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.documentElement, { childList: true });
   }
 
   styleElement.textContent = css;
+
+  if (!document.head.contains(styleElement)) {
+    const append = () => document.head?.appendChild(styleElement);
+
+    if (document.head) {
+      append();
+    } else {
+      const observer = new MutationObserver(() => {
+        if (document.head) {
+          append();
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.documentElement, { childList: true });
+    }
+  }
 }
 
 chrome.runtime.onMessage.addListener((message) => {

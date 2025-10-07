@@ -3,7 +3,7 @@
   "name": "YouHider",
   "version": "0.11.0",
   "description": "Hide YouTube distractions.",
-  "permissions": ["storage"],
+  "permissions": ["scripting", "storage"],
   "background": {
     "service_worker": "background.js",
     "scripts": ["background.js"],

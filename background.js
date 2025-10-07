@@ -34,3 +34,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 });
+
+chrome.runtime.onInstalled.addListener(async (details) => {
+  if (details.reason === "install") {
+    const tabs = await chrome.tabs.query({ url: "*://*.youtube.com/*" });
+    for (const tab of tabs) {
+      try {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["content.js"],
+        });
+      } catch (err) {
+        console.error(`Failed to inject script in tab ${tab.id}: ${err}`);
+      }
+    }
+  }
+});
