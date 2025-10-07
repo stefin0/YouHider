@@ -15,7 +15,11 @@ import { settings } from "../settings.js";
 
       await chrome.storage.local.set({ [setting.key]: state });
 
-      chrome.runtime.sendMessage({ action: "syncAllTabs" });
+      chrome.runtime.sendMessage({
+        action: "syncSetting",
+        key: setting.key,
+        state: state,
+      });
     });
   }
 })();

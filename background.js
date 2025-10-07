@@ -1,60 +1,36 @@
 import { settings } from "./settings.js";
 
-const syncingTabs = new Set();
+async function getCombinedCss() {
+  const stored = await chrome.storage.local.get(
+    settings.map((setting) => setting.key),
+  );
 
-async function syncCssForTab(tabId) {
-  if (syncingTabs.has(tabId)) {
-    return;
+  let combinedCss = "";
+  for (const setting of settings) {
+    if (stored[setting.key]) {
+      combinedCss += setting.css + "\n";
+    }
   }
 
-  syncingTabs.add(tabId);
+  return combinedCss;
+}
 
-  try {
-    const stored = await chrome.storage.local.get(
-      settings.map((setting) => setting.key),
-    );
-
-    for (const setting of settings) {
-      try {
-        await chrome.scripting.removeCSS({
-          target: { tabId: tabId },
-          css: setting.css,
-        });
-      } catch (e) {}
-
-      if (stored[setting.key]) {
-        try {
-          await chrome.scripting.insertCSS({
-            target: { tabId: tabId },
-            css: setting.css,
-          });
-        } catch (err) {
-          console.error(
-            `YouHider failed to insert CSS for ${setting.key}:`,
-            err,
-          );
-        }
-      }
-    }
-  } finally {
-    syncingTabs.delete(tabId);
+async function pushCssToAllTabs() {
+  const tabs = await chrome.tabs.query({ url: "*://*.youtube.com/*" });
+  const css = await getCombinedCss();
+  for (const tab of tabs) {
+    chrome.tabs.sendMessage(tab.id, { action: "updateCss", css: css });
   }
 }
 
-chrome.runtime.onMessage.addListener(async (message) => {
-  if (message.action === "syncAllTabs") {
-    const tabs = await chrome.tabs.query({ url: "*://*.youtube.com/*" });
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "syncSetting") {
+    pushCssToAllTabs();
+  } else if (message.action === "getInitialCss") {
+    getCombinedCss().then((css) => {
+      sendResponse({ css: css });
+    });
 
-    for (const tab of tabs) {
-      syncCssForTab(tab.id);
-    }
+    return true;
   }
-});
-
-chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
-  syncCssForTab(details.tabId);
-});
-
-chrome.webNavigation.onCompleted.addListener((details) => {
-  syncCssForTab(details.tabId);
 });
