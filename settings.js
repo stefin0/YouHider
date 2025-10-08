@@ -8,6 +8,7 @@ import {
   HIDE_PLAYABLES_CSS,
   HIDE_RELATEDVIDEOS_CSS,
   HIDE_SHORTS_CSS,
+  HIDE_UPLOADDATE_CSS,
   HIDE_VIEWS_CSS,
 } from "./constants.js";
 
@@ -56,6 +57,11 @@ export const settings = [
     key: "isHiddenShorts",
     checkboxId: "hide-shorts-checkbox",
     css: HIDE_SHORTS_CSS,
+  },
+  {
+    key: "isHiddenUploadDate",
+    checkboxId: "hide-uploaddate-checkbox",
+    css: HIDE_UPLOADDATE_CSS,
   },
   {
     key: "isHiddenViews",

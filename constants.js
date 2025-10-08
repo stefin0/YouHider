@@ -101,31 +101,58 @@ export const HIDE_SHORTS_CSS = `
         display: none !important;
     }`;
 
+export const HIDE_UPLOADDATE_CSS = `
+    /*** LIVE STREAMS ***/
+    ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
+    ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
+
+    /*** WATCH (regular videos, live streams ***/
+
+    /*** PLAYLISTS ***/
+    yt-lockup-view-model:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
+
+    /*** MIXES ***/
+
+    /*** COMMENTS ***/
+
+    /*** REGULAR VIDEOS ***/
+    /* (home, watch > related) */
+    yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date */
+    /* (search) */
+    ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
+    /* (gaming) */
+    ytd-shelf-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(2), /* upload date */
+    ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* upload date, WARNING: hides views too */ {
+        display: none !important;
+    }`;
+
 // views, watching, waiting, none-waiting
 export const HIDE_VIEWS_CSS = `
-    #metadata-line > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
-    ytd-watch-info-text[view-count-props*='"numberText":""'] yt-formatted-string#info > span:nth-child(-n+2), /* watch, description, live stream & regular video related */
+    /*** LIVE STREAMS (TODO) ***/
     #dismissible:has(ytd-thumbnail[is-live-video]) #metadata-line > span:first-of-type, /* live, metadata-line, hide watching */
     #dismissible:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style]) #metadata-line > span:first-of-type:not(:only-of-type), /* live, metadata-line, hide waiting */
+
+    /*** WATCH (TODO) ***/
+    ytd-watch-info-text[view-count-props*='"numberText":""'] yt-formatted-string#info > span:nth-child(-n+2), /* description, live stream & regular video related */
+    #view-count, /* description, newly fetched views every 5 min */
+    ytd-watch-info-text #tooltip, /* tooltip views, on hover description */
+    .ytp-videowall-still-info-author, /* end screen video views, on hover video */
+
+    /*** TODO ***/
+    #metadata-line > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
     ytd-video-meta-block:not([rich-meta]) #metadata-line > span:first-of-type, /* search, metadata-line, videos w/o relative timestamp (music) */
-    #view-count, /* watch, description, newly fetched views every 5 min */
     #live-viewers-count, /* gaming, grid-carousel-content */
     #metadata-line.ytd-grid-video-renderer span.ytd-grid-video-renderer:first-of-type, /* trending, grid-carousel-content */
     #metadata-line.ytd-grid-video-renderer > .ytd-grid-video-renderer:not(:first-of-type)::before, /* trending, grid-carousel-content, dot between views and date */
-    ytd-watch-info-text #tooltip, /* watch, description, hide views when hovering over desc */
-    .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
-    .ytp-videowall-still-info-author, /* watch, video, on hover */
     .subtitle.ytd-watch-card-compact-video-renderer, /* search, sidebar, only on big enough screens */
 
-    /* 9-18-2025 */
-    ytd-rich-item-renderer .yt-content-metadata-view-model__metadata-row:has(.yt-content-metadata-view-model__delimiter) > span:first-child, /* home, metadata-line */
-    ytd-rich-item-renderer .yt-content-metadata-view-model__delimiter, /* home, metadata-line, dot between views and date posted */
-    yt-lockup-metadata-view-model .yt-content-metadata-view-model__metadata-row:has(.yt-content-metadata-view-model__delimiter) > span:first-child, /* watch, recommended videos */
-    yt-lockup-metadata-view-model .yt-content-metadata-view-model__delimiter, /* watch, recommended videos metadata-line, dot between views and date posted */
-    ytd-watch-info-text:has(#view-count:not([aria-label*="watching"])) #info > span:first-child, /* watch, main video metadata-line, non-live */
-    ytd-watch-info-text:has(#view-count:not([aria-label*="watching"])) #info > span:first-child + span, /* watch, main video metadata-line, whitespace after view count and non-live */
-    #watch-card-subtitle, /* search, right of main (on large screens) */
-    yt-lockup-metadata-view-model .yt-content-metadata-view-model__metadata-row:has(.yt-content-metadata-view-model__delimiter) > span:first-child, /* watch, recommended, watching */
-    yt-lockup-view-model:has(.yt-badge-shape--thumbnail-live) .yt-content-metadata-view-model__metadata-row:nth-of-type(2) /* home, recommended, watching */ { 
+    /*** SHORTS (TODO) ***/
+    .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
+
+    /*** REGULAR VIDEOS ***/
+    /* (home, watch > related) */
+    yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
+    /* (gaming) */
+    ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* views, WARNING: hides upload date too */ { 
         display: none !important;
     }`;
