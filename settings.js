@@ -1,5 +1,6 @@
 import {
   HIDE_COMMENTCOUNT_CSS,
+  HIDE_COMMENTS_CSS,
   HIDE_ENDSCREEN,
   HIDE_HOMEFEED_CSS,
   HIDE_LIKES_CSS,
@@ -15,6 +16,11 @@ export const settings = [
     key: "isHiddenCommentCount",
     checkboxId: "hide-commentcount-checkbox",
     css: HIDE_COMMENTCOUNT_CSS,
+  },
+  {
+    key: "isHiddenComments",
+    checkboxId: "hide-comments-checkbox",
+    css: HIDE_COMMENTS_CSS,
   },
   {
     key: "isHiddenEndscreen",

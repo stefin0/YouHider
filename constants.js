@@ -1,4 +1,4 @@
-// CSS comments explanation: /* page, location, [note]  */
+// CSS comments explanation: /* element being hidden, [note]  */
 export const HIDE_COMMENTCOUNT_CSS = `
     ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* watch, comments */
     #reply-button-end a .yt-core-attributed-string--white-space-no-wrap, /* search, latest posts */
@@ -22,6 +22,20 @@ export const HIDE_COMMENTCOUNT_CSS = `
         width: 40px;
         border-radius: 50%;
         margin-left: -8px;
+    }`;
+
+export const HIDE_COMMENTS_CSS = `
+    /*** WATCH ***/
+    ytd-comments, /* comment section */ 
+
+    /*** SHORTS ***/
+    ytd-reel-player-overlay-renderer #comments-button, /* comment button */
+    ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
+    ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
+
+    /*** POSTS ***/
+    ytd-comment-action-buttons-renderer #reply-button-end /* comment button */ {
+        display: none !important;
     }`;
 
 export const HIDE_ENDSCREEN = `
