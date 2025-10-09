@@ -5,6 +5,7 @@ import {
   HIDE_HOMEFEED_CSS,
   HIDE_LIKES_CSS,
   HIDE_LIVECHAT_CSS,
+  HIDE_MEMBERVIDEOS_CSS,
   HIDE_PLAYABLES_CSS,
   HIDE_RELATEDVIDEOS_CSS,
   HIDE_SHORTS_CSS,
@@ -43,6 +44,11 @@ export const settings = [
     key: "isHiddenLiveChat",
     checkboxId: "hide-livechat-checkbox",
     css: HIDE_LIVECHAT_CSS,
+  },
+  {
+    key: "isHiddenMemberVideos",
+    checkboxId: "hide-membervideos-checkbox",
+    css: HIDE_MEMBERVIDEOS_CSS,
   },
   {
     key: "isHiddenPlayables",

@@ -33,7 +33,8 @@ export const HIDE_COMMENTS_CSS = `
     ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
     ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
 
-    /*** POSTS ***/
+    /*** CHANNEL ***/
+    /* posts */
     ytd-comment-action-buttons-renderer #reply-button-end /* comment button */ {
         display: none !important;
     }`;
@@ -72,11 +73,28 @@ export const HIDE_LIVECHAT_CSS = `
         display: none !important;
     }`;
 
+export const HIDE_MEMBERVIDEOS_CSS = `
+    /*** HOME/SUBSCRIPTIONS ***/
+    ytd-rich-item-renderer:has(.badge-style-type-members-only), /* member videos */
+
+    /*** CHANNEL ***/
+    /* home */
+    ytd-grid-video-renderer:has(.badge-style-type-members-only), /* member videos */
+
+    /*** WATCH ***/
+    /* related */
+    yt-lockup-view-model:has(path[d="M6 11.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11Zm1.058-6.956L6 2 4.942 4.544l-2.746.22 2.092 1.792-.64 2.68L6 7.8l2.351 1.436-.64-2.68 2.093-1.792-2.746-.22Z"]) /* member videos */{
+        display: none !important;
+    }`;
+
 export const HIDE_PLAYABLES_CSS = `
+    /*** HOME/SUBSCRIPTIONS ***/
+    ytd-rich-section-renderer:has(a[href^="/playables/"]), /* playables section */
+    
+    /*** TODO ***/
     ytd-browse[page-subtype="playables"], /* playables, entire page */
     ytd-browse[page-subtype="mini_app"], /* playables, game */ 
 
-    ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-mini-game-card-shelf]), /* home, playables */
     a[title="Playables"] /* home, left sidebar link */ {
         display: none !important;
     }`;
@@ -87,22 +105,31 @@ export const HIDE_RELATEDVIDEOS_CSS = `
     }`;
 
 export const HIDE_SHORTS_CSS = `
-    ytd-shorts, /* shorts, video */
+    /*** HOME/SUBSCRIPTIONS ***/
+    ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* shorts section */
 
-    ytd-rich-shelf-renderer[is-shorts], /* home, recommended */
-    ytd-reel-shelf-renderer, /* search & watch, recommended */ 
+    /*** SHORTS ***/
+    ytd-shorts, /* shorts */
+
+    /*** SEARCH ***/
+    grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts grid */ 
+    ytd-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
+
+    /*** WATCH ***/
+    /* related */
+    ytd-reel-shelf-renderer, /* shorts shelf */ 
+
+    /*** TODO ***/
     a[title="Shorts"], /* home, left sidebar link */
 
     /* 9-18-2025 */
-    grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2, ytm-shorts-lockup-view-model), /* search, main */ 
-    ytd-video-renderer:has(a[href^="/shorts/"]), /* search, main, shorts disguised as normal videos */
     ytm-shorts-lockup-view-model-v2, /* channel, short section */
     yt-tab-shape[tab-title="Shorts"] /* channel, tab-nav */ {
         display: none !important;
     }`;
 
 export const HIDE_UPLOADDATE_CSS = `
-    /*** LIVE STREAMS ***/
+    /*** LIVE ***/
     ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
     ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
 
@@ -113,14 +140,23 @@ export const HIDE_UPLOADDATE_CSS = `
     /*** PLAYLISTS ***/
     yt-lockup-view-model:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
 
-    /*** MIXES ***/
+    /*** HOME ***/
+    /* mixes */
 
-    /*** REGULAR VIDEOS ***/
+    /*** SEARCH ***/
+    ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
+
+    /*** CHANNEL ***/
+    /* home > posts */
+    ytd-post-renderer :is(#author-divider, #published-time-text), /* upload date */
+    /* posts */
+    ytd-backstage-post-thread-renderer #published-time-text, /* upload date */
+
+    /*** REGULAR VIDEOS (TODO separate items below) ***/
     /* (home, watch > related) */
     yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date */
-    /* (search) */
-    ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
-    /* (gaming) */
+
+    /*** GAMING ***/
     ytd-shelf-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(2), /* upload date */
     ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* upload date, WARNING: hides views too */ {
         display: none !important;
@@ -133,13 +169,12 @@ export const HIDE_VIDEODURATION_CSS = `
     ytd-video-preview yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay .yt-badge-shape__text, /* time remaining, hover */
     ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
 
-    /*** CHANNEL ***/
+    /*** CHANNEL (TODO) ***/
 
     /*** SEARCH ***/
     ytd-video-renderer ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer badge-shape:not(:has(.yt-badge-shape__icon)), /* video duration */
 
     /*** SHORTS ***/
-    /* player */
     ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
 
     /*** WATCH ***/
