@@ -10,6 +10,7 @@ import {
   HIDE_SHORTS_CSS,
   HIDE_UPLOADDATE_CSS,
   HIDE_VIEWS_CSS,
+  HIDE_VIDEODURATION_CSS,
 } from "./constants.js";
 
 export const settings = [
@@ -67,5 +68,10 @@ export const settings = [
     key: "isHiddenViews",
     checkboxId: "hide-views-checkbox",
     css: HIDE_VIEWS_CSS,
+  },
+  {
+    key: "isHiddenVideoDuration",
+    checkboxId: "hide-videoduration-checkbox",
+    css: HIDE_VIDEODURATION_CSS,
   },
 ];

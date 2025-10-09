@@ -107,13 +107,13 @@ export const HIDE_UPLOADDATE_CSS = `
     ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
 
     /*** WATCH (regular videos, live streams ***/
+    /* comments */
+    ytd-comments #published-time-text, /* upload date */
 
     /*** PLAYLISTS ***/
     yt-lockup-view-model:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
 
     /*** MIXES ***/
-
-    /*** COMMENTS ***/
 
     /*** REGULAR VIDEOS ***/
     /* (home, watch > related) */
@@ -126,6 +126,34 @@ export const HIDE_UPLOADDATE_CSS = `
         display: none !important;
     }`;
 
+export const HIDE_VIDEODURATION_CSS = `
+    /*** HOME/SUBSCRIPTIONS ***/
+    /* regular videos */
+    ytd-rich-item-renderer:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape, /* video duration */
+    ytd-video-preview yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay .yt-badge-shape__text, /* time remaining, hover */
+    ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
+
+    /*** CHANNEL ***/
+
+    /*** SEARCH ***/
+    ytd-video-renderer ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer badge-shape:not(:has(.yt-badge-shape__icon)), /* video duration */
+
+    /*** SHORTS ***/
+    /* player */
+    ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
+
+    /*** WATCH ***/
+    /* player */
+    .ytp-left-controls :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-chapter-title-prefix), /* current/duration time */
+    ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
+    ytd-player .ytp-tooltip.ytp-preview .ytp-tooltip-bottom-text > span.ytp-tooltip-text, /* scrubbing seek time, hover progress bar */
+    /* chapters */
+    ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
+    /* related */
+    yt-lockup-view-model:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape /* video duration */ {
+        display: none !important;
+    }`;
+
 // views, watching, waiting, none-waiting
 export const HIDE_VIEWS_CSS = `
     /*** LIVE STREAMS (TODO) ***/
@@ -134,7 +162,7 @@ export const HIDE_VIEWS_CSS = `
 
     /*** WATCH (TODO) ***/
     ytd-watch-info-text[view-count-props*='"numberText":""'] yt-formatted-string#info > span:nth-child(-n+2), /* description, live stream & regular video related */
-    #view-count, /* description, newly fetched views every 5 min */
+    #view-count, /* views, newly fetched views every 5 min */
     ytd-watch-info-text #tooltip, /* tooltip views, on hover description */
     .ytp-videowall-still-info-author, /* end screen video views, on hover video */
 
@@ -149,9 +177,9 @@ export const HIDE_VIEWS_CSS = `
     /*** SHORTS (TODO) ***/
     .shortsLockupViewModelHostOutsideMetadataSubhead > span, /* home & search, shorts */
 
-    /*** REGULAR VIDEOS ***/
+    /*** REGULAR VIDEOS (separate home and related) ***/
     /* (home, watch > related) */
-    yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
+    yt-lockup-view-model:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
     /* (gaming) */
     ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* views, WARNING: hides upload date too */ { 
         display: none !important;
