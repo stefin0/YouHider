@@ -133,6 +133,8 @@ export const HIDE_UPLOADDATE_CSS = `
     ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
 
     /*** WATCH ***/
+    /* regular videos (TODO) */
+    /* live videos (TODO */
     /* related */
     yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date, regular videos */
     yt-lockup-view-model:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
@@ -149,6 +151,8 @@ export const HIDE_UPLOADDATE_CSS = `
     ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
 
     /*** CHANNEL ***/
+    /* home > channel video */
+    ytd-channel-video-player-renderer ytd-video-meta-block #metadata-line span:nth-of-type(2), /* upload date */
     /* home > posts */
     ytd-post-renderer :is(#author-divider, #published-time-text), /* upload date */
     /* posts */
@@ -161,13 +165,15 @@ export const HIDE_UPLOADDATE_CSS = `
     }`;
 
 export const HIDE_VIDEODURATION_CSS = `
+    /*** MINI PLAYER ***/
+    ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
+
     /*** HOME/SUBSCRIPTIONS ***/
     ytd-video-preview yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay .yt-badge-shape__text, /* time remaining, hover */
     ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
     /* regular videos (TODO: fix now playing) */
-    ytd-rich-item-renderer:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar) yt-thumbnail-view-model badge-shape, /* video duration */
-    /* member videos */
-    ytd-rich-item-renderer:has(#avatar-container) ytd-thumbnail-overlay-time-status-renderer, /* video duration */
+    ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
+    ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"], /* video duration */
 
     /*** CHANNEL (TODO) ***/
 
@@ -182,10 +188,13 @@ export const HIDE_VIDEODURATION_CSS = `
     .ytp-left-controls :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-chapter-title-prefix), /* current/duration time */
     ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
     ytd-player .ytp-tooltip.ytp-preview .ytp-tooltip-bottom-text > span.ytp-tooltip-text, /* scrubbing seek time, hover progress bar */
+    /* end screen */
+    ytd-player .ytp-ce-video-duration, /* video duration, creator added videos */
+    ytd-player .ytp-videowall-still-info-duration, /* video duration, end of video */
     /* chapters */
     ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
     /* related */
-    yt-lockup-view-model:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape /* video duration */ {
+    yt-lockup-view-model:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live) /* video duration */ {
         display: none !important;
     }`;
 
@@ -205,12 +214,15 @@ export const HIDE_VIEWS_CSS = `
     #dismissible:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style]) #metadata-line > span:first-of-type:not(:only-of-type), /* live, metadata-line, hide waiting */
 
     /*** WATCH ***/
+    ytd-watch-info-text #view-count, /* views, fetched every 5 min -- live and regular videos after 5 min */
+    /* regular videos */
+    #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text yt-formatted-string#info span:nth-child(-n+2), /* views /*
     /* related */
     yt-lockup-view-model:has(yt-lockup-metadata-view-model .yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
+    yt-lockup-view-model:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+    /* description tooltip */
+    ytd-watch-info-text #tooltip, /* views, hover description tooltip WARNING: hides upload date too */
     /* TODO */
-    ytd-watch-info-text[view-count-props*='"numberText":""'] yt-formatted-string#info > span:nth-child(-n+2), /* description, live stream & regular video related */
-    #view-count, /* views, newly fetched views every 5 min */
-    ytd-watch-info-text #tooltip, /* tooltip views, on hover description */
     .ytp-videowall-still-info-author, /* end screen video views, on hover video */
 
     /*** TODO ***/
