@@ -127,6 +127,22 @@ export const HIDE_SHORTS_CSS = `
         display: none !important;
     }`;
 
+export const HIDE_SUBSCRIBERCOUNT_CSS = `
+    /*** CHANNEL ***/
+    yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2) > span:nth-child(-n + 2), /* delimiters & subscriber count */
+    ytd-grid-channel-renderer #thumbnail-attribution, /* subscriber count */
+
+    /*** SEARCH ***/
+    ytd-channel-renderer #metadata :is(#dot, #dot + span), /* delimiter & subscriber count */
+
+    /*** WATCH ***/
+    /* player */
+    ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
+    /* top-row */
+    ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
+        display: none !important;
+    }`;
+
 export const HIDE_UPLOADDATE_CSS = `
     /*** LIVE ***/
     ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
