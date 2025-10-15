@@ -26,6 +26,9 @@ export const HIDE_COMMENTCOUNT_CSS = `
 
 export const HIDE_COMMENTS_CSS = `
     /*** WATCH ***/
+    /* player */
+    ytd-player yt-player-quick-action-buttons toggle-button-view-model:has(path[d^="M1 6a4"]), /* comment button */
+    /* comment section */
     ytd-comments, /* comment section */ 
 
     /*** SHORTS ***/
@@ -40,8 +43,13 @@ export const HIDE_COMMENTS_CSS = `
     }`;
 
 export const HIDE_ENDSCREEN = `
-    .html5-endscreen, /* watch, end of video */
-    ytd-player [class^="ytp-ce"] /* watch, near end of video */ {
+    /*** MINI PLAYER ***/
+    ytd-miniplayer .videowall-endscreen, /* end screen */
+
+    /*** WATCH ***/
+    /* player */
+    ytd-player .ytp-fullscreen-grid, /* end screen, end of video */
+    ytd-player [class^="ytp-ce"] /* end screen, near end of video */ {
         display: none !important;
     }`;
 
@@ -138,6 +146,8 @@ export const HIDE_SUBSCRIBERCOUNT_CSS = `
     /*** WATCH ***/
     /* player */
     ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
+    /* description */
+    ytd-video-description-infocards-section-renderer #subtitle, /* subscriber count */
     /* top-row */
     ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
         display: none !important;
@@ -150,6 +160,9 @@ export const HIDE_UPLOADDATE_CSS = `
 
     /*** WATCH ***/
     ytd-watch-info-text #date-text, /* views, fetched every 5 min -- live and regular videos after 5 min */
+    /* player */
+    /* end screen */
+    ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
     /* regular videos */
     #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#date-text[aria-label=""]) yt-formatted-string#info span:nth-child(n + 2):nth-child(-n + 4), /* upload date /*
     /* live videos (TODO */
@@ -188,11 +201,11 @@ export const HIDE_VIDEODURATION_CSS = `
     ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
 
     /*** HOME/SUBSCRIPTIONS ***/
+    /* preview */
     ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
-    /* regular videos */
     ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay, /* time remaining, hover */
-    /* regular videos (TODO: fix now playing) */
-    ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
+    /* regular videos           vvv mixes don't have avatars vvv                 vvv "notify me" vvv                   vvv "now playing" vvv */
+    ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
     ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"], /* video duration */
 
     /*** CHANNEL (TODO) ***/
@@ -205,12 +218,13 @@ export const HIDE_VIDEODURATION_CSS = `
 
     /*** WATCH ***/
     /* player */
-    .ytp-left-controls :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-chapter-title-prefix), /* current/duration time */
+    ytd-player .ytp-time-display, /* current/duration */
     ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
-    ytd-player .ytp-tooltip.ytp-preview .ytp-tooltip-bottom-text > span.ytp-tooltip-text, /* scrubbing seek time, hover progress bar */
+    ytd-player .ytp-tooltip-progress-bar-pill-time-stamp, /* scrubbing seek time, hover progress bar */
     /* end screen */
     ytd-player .ytp-ce-video-duration, /* video duration, creator added videos */
     ytd-player .ytp-videowall-still-info-duration, /* video duration, end of video */
+    ytd-player .ytp-modern-videowall-still-info-duration, /* video duration */
     /* chapters */
     ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
     ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
@@ -222,11 +236,14 @@ export const HIDE_VIDEODURATION_CSS = `
 
 // views, watching, waiting, none-waiting
 export const HIDE_VIEWS_CSS = `
+    /*** MINI PLAYER ***/
+    ytd-miniplayer .ytp-videowall-still-info-author, /* views, WARNING: hides author too */
     /*** HOME/SUBSCRIPTIONS ***/
     /* regular videos */
     ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
     /* live streams */
     ytd-rich-item-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+    ytd-rich-item-renderer:has(lottie-component) yt-content-metadata-view-model > div:nth-child(2):has(> span:first-child:last-child), /* watching, now playing */
     /* shorts */
     ytm-shorts-lockup-view-model-v2 h3 + div, /* views */
 
@@ -237,6 +254,9 @@ export const HIDE_VIEWS_CSS = `
 
     /*** WATCH ***/
     ytd-watch-info-text #view-count, /* views, fetched every 5 min -- live and regular videos after 5 min */
+    /* player */
+    /* end screen */
+    ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
     /* regular videos */
     #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info span:nth-child(-n+2), /* views /*
     /* related */
@@ -244,8 +264,6 @@ export const HIDE_VIEWS_CSS = `
     yt-lockup-view-model.ytd-item-section-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
     /* description tooltip */
     ytd-watch-info-text #tooltip, /* views, hover description tooltip WARNING: hides upload date too */
-    /* TODO */
-    .ytp-videowall-still-info-author, /* end screen video views, on hover video */
 
     /*** TODO ***/
     #metadata-line > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
