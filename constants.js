@@ -123,6 +123,7 @@ export const HIDE_SHORTS_CSS = `
     /*** SEARCH ***/
     grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts grid */ 
     ytd-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
+    ytd-grid-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
 
     /*** WATCH ***/
     /* related */
@@ -147,7 +148,7 @@ export const HIDE_SUBSCRIBERCOUNT_CSS = `
     /* player */
     ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
     /* description */
-    ytd-video-description-infocards-section-renderer #subtitle, /* subscriber count */
+    ytd-video-description-infocards-section-renderer #header-text #subtitle, /* subscriber count */
     /* top-row */
     ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
         display: none !important;
@@ -160,12 +161,12 @@ export const HIDE_UPLOADDATE_CSS = `
 
     /*** WATCH ***/
     ytd-watch-info-text #date-text, /* views, fetched every 5 min -- live and regular videos after 5 min */
-    /* player */
     /* end screen */
     ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
     /* regular videos */
-    #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#date-text[aria-label=""]) yt-formatted-string#info span:nth-child(n + 2):nth-child(-n + 4), /* upload date /*
-    /* live videos (TODO */
+    #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#date-text[aria-label=""]) yt-formatted-string#info span:nth-child(n + 3):nth-child(-n + 4), /* upload date /*
+    /* live videos (TODO) */
+    #primary-inner:has(.ytp-live) ytd-watch-info-text yt-formatted-string#info span:nth-child(-n+2), /* started streaming date */
     /* related */
     yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date, regular videos */
     yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
@@ -206,12 +207,13 @@ export const HIDE_VIDEODURATION_CSS = `
     ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay, /* time remaining, hover */
     /* regular videos           vvv mixes don't have avatars vvv                 vvv "notify me" vvv                   vvv "now playing" vvv */
     ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
-    ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"], /* video duration */
+    ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]:not([hide-time-status]), /* video duration */
 
     /*** CHANNEL (TODO) ***/
 
     /*** SEARCH ***/
     ytd-video-renderer ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer badge-shape:not(:has(.yt-badge-shape__icon)), /* video duration */
+    ytd-video-renderer #time, /* timestamp, metadata snippet timestamp */
 
     /*** SHORTS ***/
     ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
@@ -259,10 +261,13 @@ export const HIDE_VIEWS_CSS = `
     ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
     /* regular videos */
     #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info span:nth-child(-n+2), /* views /*
+    /* live streams */
+    #primary-inner:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(3)) > span:nth-of-type(-n+3), /* watching, when first opening live stream */
     /* related */
     yt-lockup-view-model.ytd-item-section-renderer:has(.yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
     yt-lockup-view-model.ytd-item-section-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
-    /* description tooltip */
+    /** description */
+    ytd-structured-description-video-lockup-renderer yt-formatted-string#metadata-details, /* views, video in description */
     ytd-watch-info-text #tooltip, /* views, hover description tooltip WARNING: hides upload date too */
 
     /*** TODO ***/
