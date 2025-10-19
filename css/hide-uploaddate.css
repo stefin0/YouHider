@@ -1,0 +1,41 @@
+/*** LIVE ***/
+ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
+ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
+
+/*** WATCH ***/
+ytd-watch-info-text #date-text, /* views, fetched every 5 min -- live and regular videos after 5 min */
+/* end screen */
+ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
+/* regular videos */
+#primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#date-text[aria-label=""]) yt-formatted-string#info span:nth-child(n + 3):nth-child(-n + 4), /* upload date /*
+/* live videos (TODO) */
+#primary-inner:has(.ytp-live) ytd-watch-info-text yt-formatted-string#info span:nth-child(-n+2), /* started streaming date */
+/* related */
+yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date, regular videos */
+yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-thumbnail-view-model badge-shape .yt-badge-shape__icon)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
+/* comments */
+ytd-comments #published-time-text, /* upload date */
+
+/*** PLAYLISTS ***/
+ytd-rich-item-renderer:has(yt-collections-stack) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
+
+/*** HOME ***/
+ytd-rich-item-renderer:not(:has(lockup-attachments-view-model)) yt-content-metadata-view-model div:nth-of-type(2) :is(.yt-content-metadata-view-model__delimiter, .yt-content-metadata-view-model__delimiter + span), /* delimter & upload date */
+/* mixes (TODO) */
+
+/*** SEARCH ***/
+ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
+
+/*** CHANNEL ***/
+/* home > channel video */
+ytd-channel-video-player-renderer ytd-video-meta-block #metadata-line span:nth-of-type(2), /* upload date */
+/* home > posts */
+ytd-post-renderer :is(#author-divider, #published-time-text), /* upload date */
+/* posts */
+ytd-backstage-post-thread-renderer #published-time-text, /* upload date */
+
+/*** GAMING ***/
+ytd-shelf-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(2), /* upload date */
+ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* upload date, WARNING: hides views too */ {
+  display: none !important;
+}

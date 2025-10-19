@@ -1,0 +1,37 @@
+/*** MINI PLAYER ***/
+ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
+
+/*** HOME/SUBSCRIPTIONS ***/
+/* preview */
+ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
+ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay, /* time remaining, hover */
+/* regular videos           vvv mixes don't have avatars vvv                 vvv "notify me" vvv                   vvv "now playing" vvv */
+ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
+ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]:not([overlay-type="OPEN_IN_NEW_TAB"]), /* video duration */
+
+/*** CHANNEL (TODO) ***/
+
+/*** SEARCH ***/
+ytd-video-renderer ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer badge-shape:not(:has(.yt-badge-shape__icon)), /* video duration */
+ytd-video-renderer #time, /* timestamp, metadata snippet timestamp */
+
+/*** SHORTS ***/
+ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
+
+/*** WATCH ***/
+/* player */
+ytd-player .ytp-time-display, /* current/duration */
+ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
+ytd-player .ytp-tooltip-progress-bar-pill-time-stamp, /* scrubbing seek time, hover progress bar */
+/* end screen */
+ytd-player .ytp-ce-video-duration, /* video duration, creator added videos */
+ytd-player .ytp-videowall-still-info-duration, /* video duration, end of video */
+ytd-player .ytp-modern-videowall-still-info-duration, /* video duration */
+/* chapters */
+ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
+ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
+ytd-horizontal-card-list-renderer[modern-chapters=""] #items::before, /* blue line connect chapters, inside description */
+/* related */
+yt-lockup-view-model.ytd-item-section-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live) /* video duration */ {
+  display: none !important;
+}

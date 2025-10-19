@@ -1,0 +1,16 @@
+/*** WATCH ***/
+/* player */
+ytd-player yt-player-quick-action-buttons toggle-button-view-model:has(path[d^="M1 6a4"]), /* comment button */
+/* comment section */
+ytd-comments, /* comment section */ 
+
+/*** SHORTS ***/
+ytd-reel-player-overlay-renderer #comments-button, /* comment button */
+ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
+ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
+
+/*** CHANNEL ***/
+/* posts */
+ytd-comment-action-buttons-renderer #reply-button-end /* comment button */ {
+  display: none !important;
+}

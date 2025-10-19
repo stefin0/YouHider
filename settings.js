@@ -1,89 +1,72 @@
-import {
-  HIDE_COMMENTCOUNT_CSS,
-  HIDE_COMMENTS_CSS,
-  HIDE_ENDSCREEN,
-  HIDE_HOMEFEED_CSS,
-  HIDE_LIKES_CSS,
-  HIDE_LIVECHAT_CSS,
-  HIDE_MEMBERVIDEOS_CSS,
-  HIDE_PLAYABLES_CSS,
-  HIDE_RELATEDVIDEOS_CSS,
-  HIDE_SHORTS_CSS,
-  HIDE_SUBSCRIBERCOUNT_CSS,
-  HIDE_UPLOADDATE_CSS,
-  HIDE_VIEWS_CSS,
-  HIDE_VIDEODURATION_CSS,
-} from "./constants.js";
-
 export const settings = [
   {
     key: "isHiddenCommentCount",
     checkboxId: "hide-commentcount-checkbox",
-    css: HIDE_COMMENTCOUNT_CSS,
+    cssFile: "css/hide-commentcount.css",
   },
   {
     key: "isHiddenComments",
     checkboxId: "hide-comments-checkbox",
-    css: HIDE_COMMENTS_CSS,
+    cssFile: "css/hide-comments.css",
   },
   {
     key: "isHiddenEndscreen",
     checkboxId: "hide-endscreen-checkbox",
-    css: HIDE_ENDSCREEN,
+    cssFile: "css/hide-endscreen.css",
   },
   {
     key: "isHiddenHomeFeed",
     checkboxId: "hide-homefeed-checkbox",
-    css: HIDE_HOMEFEED_CSS,
+    cssFile: "css/hide-homefeed.css",
   },
   {
     key: "isHiddenLikes",
     checkboxId: "hide-likes-checkbox",
-    css: HIDE_LIKES_CSS,
+    cssFile: "css/hide-likes.css",
   },
   {
     key: "isHiddenLiveChat",
     checkboxId: "hide-livechat-checkbox",
-    css: HIDE_LIVECHAT_CSS,
+    cssFile: "css/hide-livechat.css",
   },
   {
     key: "isHiddenMemberVideos",
     checkboxId: "hide-membervideos-checkbox",
-    css: HIDE_MEMBERVIDEOS_CSS,
+    cssFile: "css/hide-membervideos.css",
   },
   {
     key: "isHiddenPlayables",
     checkboxId: "hide-playables-checkbox",
-    css: HIDE_PLAYABLES_CSS,
+    cssFile: "css/hide-playables.css",
   },
   {
     key: "isHiddenRelatedVideos",
     checkboxId: "hide-relatedvideos-checkbox",
-    css: HIDE_RELATEDVIDEOS_CSS,
+    cssFile: "css/hide-relatedvideos.css",
   },
   {
     key: "isHiddenShorts",
     checkboxId: "hide-shorts-checkbox",
-    css: HIDE_SHORTS_CSS,
+    cssFile: "css/hide-shorts.css",
   },
   {
     key: "isHiddenSubscriberCount",
     checkboxId: "hide-subscribercount-checkbox",
-    css: HIDE_SUBSCRIBERCOUNT_CSS,
+    cssFile: "css/hide-subscribercount.css",
   },
   {
     key: "isHiddenUploadDate",
     checkboxId: "hide-uploaddate-checkbox",
-    css: HIDE_UPLOADDATE_CSS,
-  },
-  {
-    key: "isHiddenViews",
-    checkboxId: "hide-views-checkbox",
-    css: HIDE_VIEWS_CSS,
+    cssFile: "css/hide-uploaddate.css",
   },
   {
     key: "isHiddenVideoDuration",
     checkboxId: "hide-videoduration-checkbox",
-    css: HIDE_VIDEODURATION_CSS,
+    cssFile: "css/hide-videoduration.css",
+  },
+  {
+    key: "isHiddenViews",
+    checkboxId: "hide-views-checkbox",
+    cssFile: "css/hide-views.css",
   },
 ];

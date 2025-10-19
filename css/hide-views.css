@@ -1,0 +1,44 @@
+/*** MINI PLAYER ***/
+ytd-miniplayer .ytp-videowall-still-info-author, /* views, WARNING: hides author too */
+/*** HOME/SUBSCRIPTIONS ***/
+/* regular videos */
+ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
+/* live streams */
+ytd-rich-item-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+ytd-rich-item-renderer:has(lottie-component) yt-content-metadata-view-model > div:nth-child(2):has(> span:first-child:last-child), /* watching, now playing */
+/* shorts */
+ytm-shorts-lockup-view-model-v2 h3 + div, /* views */
+
+
+/*** LIVE STREAMS (TODO) ***/
+#dismissible:has(ytd-thumbnail[is-live-video]) #metadata-line > span:first-of-type, /* live, metadata-line, hide watching */
+#dismissible:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style]) #metadata-line > span:first-of-type:not(:only-of-type), /* live, metadata-line, hide waiting */
+
+/*** WATCH ***/
+ytd-watch-info-text #view-count, /* views, fetched every 5 min -- live and regular videos after 5 min */
+/* player */
+/* end screen */
+ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
+/* regular videos */
+#primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info span:nth-child(-n+2), /* views /*
+/* live streams */
+#primary-inner:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(3)) > span:nth-of-type(-n+3), /* watching, when first opening live stream */
+/* related */
+yt-lockup-view-model.ytd-item-section-renderer:has(.yt-lockup-metadata-view-model__avatar) yt-content-metadata-view-model > div:nth-child(2):has(span + span) > :is(span:has(+ .yt-content-metadata-view-model__delimiter), .yt-content-metadata-view-model__delimiter), /* views & delimter */
+yt-lockup-view-model.ytd-item-section-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+/** description */
+ytd-structured-description-video-lockup-renderer yt-formatted-string#metadata-details, /* views, video in description */
+ytd-watch-info-text #tooltip, /* views, hover description tooltip WARNING: hides upload date too */
+
+/*** TODO ***/
+#metadata-line > .ytd-video-meta-block:not(:first-of-type)::before, /* search, metadata-line, dot between views and date */
+ytd-video-meta-block:not([rich-meta]) #metadata-line > span:first-of-type, /* search, metadata-line, videos w/o relative timestamp (music) */
+#live-viewers-count, /* gaming, grid-carousel-content */
+#metadata-line.ytd-grid-video-renderer span.ytd-grid-video-renderer:first-of-type, /* trending, grid-carousel-content */
+#metadata-line.ytd-grid-video-renderer > .ytd-grid-video-renderer:not(:first-of-type)::before, /* trending, grid-carousel-content, dot between views and date */
+.subtitle.ytd-watch-card-compact-video-renderer, /* search, sidebar, only on big enough screens */
+
+/*** GAMING ***/
+ytd-horizontal-card-list-renderer ytd-grid-video-renderer #metadata-line > span:nth-of-type(1) /* views, WARNING: hides upload date too */ {
+  display: none !important;
+}

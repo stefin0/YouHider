@@ -1,0 +1,21 @@
+/*** HOME/SUBSCRIPTIONS ***/
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* shorts section */
+
+/*** SHORTS ***/
+ytd-shorts, /* shorts */
+
+/*** SEARCH ***/
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts grid */ 
+ytd-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
+ytd-grid-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
+
+/*** WATCH ***/
+/* related */
+ytd-reel-shelf-renderer, /* shorts shelf */ 
+
+/*** TODO ***/
+a[title="Shorts"], /* home, left sidebar link */
+ytm-shorts-lockup-view-model-v2, /* channel, short section */
+yt-tab-shape[tab-title="Shorts"] /* channel, tab-nav */ {
+  display: none !important;
+}

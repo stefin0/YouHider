@@ -1,0 +1,23 @@
+ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* watch, comments */
+#reply-button-end a .yt-core-attributed-string--white-space-no-wrap, /* search, latest posts */
+#more-replies .yt-core-attributed-string--white-space-no-wrap, /* watch, comments of a comment */
+#less-replies .yt-core-attributed-string--white-space-no-wrap, /* watch, comments of a comment */
+#expander.ytd-comment-replies-renderer .dot.ytd-comment-replies-renderer, /* watch, author comment - right dot */
+#comments-button .yt-core-attributed-string--word-wrapping, /* shorts, comment button */
+#contextual-info.ytd-engagement-panel-title-header-renderer, /* shorts, comment dialog */
+#replies:has(#more-replies-icon) #more-replies /* watch, comments, button after creator pfp */ {
+  display: none !important;
+}
+
+#more-replies .yt-spec-button-shape-next__icon, /* watch, comments, center chevron down icon */ 
+#less-replies .yt-spec-button-shape-next__icon /* watch, comments, center chevron down icon */ {
+  margin: 0 !important;
+}
+
+#more-replies button[aria-label*="repl"], /* watch, comments, transform to circle */ 
+#less-replies button[aria-label*="repl"] /* watch, comments, transform to circle */ {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: -8px;
+}

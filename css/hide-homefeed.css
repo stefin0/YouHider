@@ -1,0 +1,4 @@
+ytd-browse[page-subtype="home"], /* home, main content */
+a[title="Home"] /* home, left sidebar link */ {
+  display: none !important;
+}

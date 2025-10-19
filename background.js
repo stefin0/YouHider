@@ -8,7 +8,9 @@ async function getCombinedCss() {
   let combinedCss = "";
   for (const setting of settings) {
     if (stored[setting.key]) {
-      combinedCss += setting.css + "\n";
+      const response = await fetch(chrome.runtime.getURL(setting.cssFile));
+      const css = await response.text();
+      combinedCss += css + "\n";
     }
   }
 
