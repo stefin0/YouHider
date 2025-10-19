@@ -1,3 +1,5 @@
+/* CSS comments explanation: /* element being hidden, [note]  */
+
 /*** MINI PLAYER ***/
 ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
 
@@ -6,7 +8,7 @@ ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .
 ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
 ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay, /* time remaining, hover */
 /* regular videos           vvv mixes don't have avatars vvv                 vvv "notify me" vvv                   vvv "now playing" vvv */
-ytd-rich-item-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
+ytd-rich-item-renderer:has(yt-avatar-shape):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
 ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]:not([overlay-type="OPEN_IN_NEW_TAB"]), /* video duration */
 
 /*** CHANNEL (TODO) ***/
@@ -32,6 +34,6 @@ ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter 
 ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
 ytd-horizontal-card-list-renderer[modern-chapters=""] #items::before, /* blue line connect chapters, inside description */
 /* related */
-yt-lockup-view-model.ytd-item-section-renderer:has(.yt-lockup-metadata-view-model__avatar):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live) /* video duration */ {
+yt-lockup-view-model.ytd-item-section-renderer:has(yt-avatar-shape):not(:has(lockup-attachments-view-model)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live) /* video duration */ {
   display: none !important;
 }

@@ -1,3 +1,5 @@
+/* CSS comments explanation: /* element being hidden, [note]  */
+
 /*** HOME/SUBSCRIPTIONS ***/
 ytd-rich-item-renderer:has(.badge-style-type-members-only), /* member videos */
 

@@ -1,3 +1,5 @@
+/* CSS comments explanation: /* element being hidden, [note]  */
+
 .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
 button[title="I like this"] > .yt-spec-button-shape-next__button-text-content, /* watch, rating */
 #vote-count-middle, /* watch, comments */

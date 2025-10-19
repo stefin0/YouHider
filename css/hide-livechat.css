@@ -1,3 +1,5 @@
+/* CSS comments explanation: /* element being hidden, [note]  */
+
 #chat-container, /* watch, live chat */
 #teaser-carousel:has([aria-label*="Live chat"]) /* watch, near description */ {
   display: none !important;

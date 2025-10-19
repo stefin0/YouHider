@@ -1,3 +1,5 @@
+/* CSS comments explanation: /* element being hidden, [note]  */
+
 /*** HOME/SUBSCRIPTIONS ***/
 ytd-rich-section-renderer:has(a[href^="/playables/"]), /* playables section */
 
