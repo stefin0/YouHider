@@ -1,7 +1,7 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
 /*** CHANNEL ***/
-yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2)>span:nth-child(-n+2), /* delimiters & subscriber count */
+yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* delimiters & subscriber count */
 ytd-grid-channel-renderer #thumbnail-attribution, /* subscriber count */
 
 /*** SEARCH ***/
