@@ -18,6 +18,9 @@ ytd-rich-item-renderer:not(:has(lockup-attachments-view-model)) yt-content-metad
 ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
 ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
 
+/*** NOTIFICATIONS ***/
+ytd-notification-renderer div.metadata > yt-formatted-string:nth-of-type(2), /* upload date */
+
 /*** PLAYLISTS ***/
 ytd-rich-item-renderer:has(yt-collections-stack) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
 ytd-playlist-video-renderer #byline-container :is(span:nth-of-type(2), span:nth-of-type(3)), /* views & delimiter */

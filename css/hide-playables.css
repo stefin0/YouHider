@@ -3,10 +3,9 @@
 /*** HOME/SUBSCRIPTIONS ***/
 ytd-rich-section-renderer:has(a[href^="/playables/"]), /* playables section */
 
-/*** TODO ***/
 ytd-browse[page-subtype="playables"], /* playables, entire page */
 ytd-browse[page-subtype="mini_app"], /* playables, game */ 
-
+/*** TODO ***/
 a[title="Playables"] /* home, left sidebar link */ {
   display: none !important;
 }

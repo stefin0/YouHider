@@ -24,11 +24,11 @@ export const settings = [
     checkboxId: "hide-likes-checkbox",
     cssFile: "css/hide-likes.css",
   },
-  {
-    key: "isHiddenLiveChat",
-    checkboxId: "hide-livechat-checkbox",
-    cssFile: "css/hide-livechat.css",
-  },
+  // {
+  //   key: "isHiddenLiveChat",
+  //   checkboxId: "hide-livechat-checkbox",
+  //   cssFile: "css/hide-livechat.css",
+  // },
   {
     key: "isHiddenMemberVideos",
     checkboxId: "hide-membervideos-checkbox",

@@ -1,16 +1,21 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
+/*** TODO ***/
 .yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
 button[title="I like this"] > .yt-spec-button-shape-next__button-text-content, /* watch, rating */
 #vote-count-middle, /* watch, comments */
 #vote-count-middle.ytd-comment-action-buttons-renderer, /* search, latest posts from {youtuber} */
 #like-button.ytd-like-button-renderer .yt-core-attributed-string--word-wrapping, /* shorts, rating */
+like-button-view-model .yt-spec-button-shape-next__button-text-content, /* watch, rating */
 
-/* 9-15-2025 */
-like-button-view-model .yt-spec-button-shape-next__button-text-content /* watch, rating */ {
+/*** WATCH ***/
+/*** live ***/
+tp-yt-paper-dialog yt-live-chat-like-button-view-model button > .yt-spec-button-shape-next__button-text-content, /* like count, inside paid message */
+yt-live-chat-ticker-paid-message-item-renderer #like-stats > yt-attributed-string /* like count, live chat - paid message */ {
   display: none !important;
 }
 
+/*** TODO ***/
 button[aria-label^="like this video"] .yt-spec-button-shape-next__icon /* watch, rating, center like button */ {
   margin: 0 !important;
 }

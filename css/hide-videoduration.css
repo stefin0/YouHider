@@ -11,8 +11,6 @@ ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-c
 ytd-rich-item-renderer:has(yt-avatar-shape):not(:has(lockup-attachments-view-model)):not(:has(lottie-component)) yt-thumbnail-view-model badge-shape:not(.yt-badge-shape--thumbnail-live), /* video duration */
 ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]:not([overlay-type="OPEN_IN_NEW_TAB"]), /* video duration */
 
-/*** CHANNEL (TODO) ***/
-
 /*** SEARCH ***/
 ytd-video-renderer ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer badge-shape:not(:has(.yt-badge-shape__icon)), /* video duration */
 ytd-video-renderer #time, /* timestamp, metadata snippet timestamp */

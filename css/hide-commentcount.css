@@ -1,5 +1,6 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
+/*** TODO ***/
 ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* watch, comments */
 #reply-button-end a .yt-core-attributed-string--white-space-no-wrap, /* search, latest posts */
 #more-replies .yt-core-attributed-string--white-space-no-wrap, /* watch, comments of a comment */
@@ -7,15 +8,21 @@ ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* w
 #expander.ytd-comment-replies-renderer .dot.ytd-comment-replies-renderer, /* watch, author comment - right dot */
 #comments-button .yt-core-attributed-string--word-wrapping, /* shorts, comment button */
 #contextual-info.ytd-engagement-panel-title-header-renderer, /* shorts, comment dialog */
-#replies:has(#more-replies-icon) #more-replies /* watch, comments, button after creator pfp */ {
+#replies:has(#more-replies-icon) #more-replies, /* watch, comments, button after creator pfp */
+
+/*** WATCH ***/
+/* live videos */
+yt-live-chat-ticker-paid-message-item-renderer #reply-stats > yt-attributed-string /* comment count, live chat - paid messge */ {
   display: none !important;
 }
 
+/*** TODO ***/
 #more-replies .yt-spec-button-shape-next__icon, /* watch, comments, center chevron down icon */ 
 #less-replies .yt-spec-button-shape-next__icon /* watch, comments, center chevron down icon */ {
   margin: 0 !important;
 }
 
+/*** TODO ***/
 #more-replies button[aria-label*="repl"], /* watch, comments, transform to circle */ 
 #less-replies button[aria-label*="repl"] /* watch, comments, transform to circle */ {
   height: 40px;
