@@ -1,6 +1,6 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** TODO ***/
+/*** TODO: also hide 2nd close button on creator reply ***/
 ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* watch, comments */
 #reply-button-end a .yt-core-attributed-string--white-space-no-wrap, /* search, latest posts */
 #more-replies .yt-core-attributed-string--white-space-no-wrap, /* watch, comments of a comment */
@@ -9,6 +9,10 @@ ytd-comments-header-renderer #leading-section.ytd-comments-header-renderer, /* w
 #comments-button .yt-core-attributed-string--word-wrapping, /* shorts, comment button */
 #contextual-info.ytd-engagement-panel-title-header-renderer, /* shorts, comment dialog */
 #replies:has(#more-replies-icon) #more-replies, /* watch, comments, button after creator pfp */
+
+/*** SHORTS ***/
+/* action bar */
+reel-action-bar-view-model button-view-model:has(path[d="M1 6a4 4 0 014-4h14a4 4 0 014 4v10a4 4 0 01-4 4h-4.8l-5.105 2.836A1.41 1.41 0 017 21.604V20H5a4 4 0 01-4-4V6Zm8 12v2.601l4.229-2.35.453-.251H19a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h4ZM7 8a1 1 0 000 2h10a1 1 0 100-2H7Zm-1 5a1 1 0 001 1h6a1 1 0 000-2H7a1 1 0 00-1 1Z"]) button + div > span, /* comment count */
 
 /*** WATCH ***/
 /* live videos */

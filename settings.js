@@ -21,8 +21,8 @@ export const settings = [
   },
   {
     key: "isHiddenLikes",
-    checkboxId: "hide-likes-checkbox",
-    cssFile: "css/hide-likes.css",
+    checkboxId: "hide-likecount-checkbox",
+    cssFile: "css/hide-likecount.css",
   },
   // {
   //   key: "isHiddenLiveChat",
@@ -66,7 +66,7 @@ export const settings = [
   },
   {
     key: "isHiddenViews",
-    checkboxId: "hide-views-checkbox",
-    cssFile: "css/hide-views.css",
+    checkboxId: "hide-viewcount-checkbox",
+    cssFile: "css/hide-viewcount.css",
   },
 ];

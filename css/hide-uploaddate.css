@@ -30,10 +30,14 @@ ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* u
 ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* upload date, WARNING: hides views too */
 ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
 
+/*** SHORTS ***/
+/* description */
+ytd-video-description-header-renderer[shorts-panel=""] upload-time-factoid-renderer, /* upload date */
+
 /*** WATCH ***/
-ytd-watch-info-text #date-text, /* views, fetched every 5 min -- live and regular videos after 5 min */
+ytd-watch-info-text #date-text, /* upload date, fetched every 5 min -- live and regular videos after 5 min */
 /* end screen */
-ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* views, WARNING: hides upload date too */
+ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* upload date, WARNING: hides upload date too */
 /* regular videos */
 #primary-inner:not(:has(.ytp-live)) ytd-watch-info-text:has(#date-text[aria-label=""]) yt-formatted-string#info :is(span:nth-of-type(3), span:nth-of-type(4)), /* upload date /*
 /* live videos */
