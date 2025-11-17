@@ -13,6 +13,7 @@ ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
 /* description */
 ytd-video-description-infocards-section-renderer #header-text #subtitle, /* subscriber count */
 /* top-row */
+yt-dialog-view-model yt-list-item-view-model .yt-list-item-view-model__text-wrapper > span:first-of-type, /* subscriber count, WARNING: hides creator name, collaborators */
 ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
   display: none !important;
 }

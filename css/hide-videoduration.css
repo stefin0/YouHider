@@ -20,7 +20,7 @@ ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hove
 
 /*** WATCH ***/
 /* player */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-player .ytp-time-display, /* current/duration */
+ytd-page-manager:not(:has(.ytp-live)) ytd-player .ytp-time-display, /* current/duration */
 ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
 ytd-player .ytp-tooltip-progress-bar-pill-time-stamp, /* scrubbing seek time, hover progress bar */
 /* end screen */

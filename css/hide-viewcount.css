@@ -1,6 +1,8 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
 /*** CHANNEL/GAMING ***/
+ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(1), /* view count */
+ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
 ytd-grid-video-renderer #metadata-line > span:only-of-type, /* view count, WARNING: hides upload date too */
 ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(1), /* view count */
 ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2)::before, /* delimiter, after view count */ 
@@ -17,6 +19,9 @@ ytd-rich-item-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-
 ytd-rich-item-renderer:has(lottie-component) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* watching, now playing */
 /* shorts */
 ytm-shorts-lockup-view-model-v2 h3 + div, /* view count */
+/* survey */
+ytd-inline-survey-renderer #metadata-line > span:nth-of-type(1), /* view count */
+ytd-inline-survey-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
 
 /*** LIVE/MUSIC ***/
 ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* watching */
