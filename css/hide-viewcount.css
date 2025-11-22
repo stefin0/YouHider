@@ -35,6 +35,7 @@ ytd-miniplayer .ytp-videowall-still-info-author, /* view count, WARNING: hides a
 ytd-playlist-video-renderer #byline-container :is(#separator, #video-info span:nth-of-type(1)), /* view count & delimiter */
 
 /*** SEARCH/SHOPPING ***/
+/* primary */
 ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* view count, WARNING: hides upload date and name too */
 ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* view count, WARNING: hides upload date too */
 ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(1), /* view count */
@@ -49,7 +50,7 @@ ytd-watch-info-text #view-count, /* view count, fetched every 5 min -- live and 
 /* end screen */
 ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* view count, WARNING: hides upload date too */
 /* regular videos */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count /*
+ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info > :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count */
 /* live videos */
 ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(4)) > :is(span:nth-of-type(1), span:nth-of-type(2), span:nth-of-type(3)), /* watching, when first opening live stream */
 /* offline (scheduled) videos */

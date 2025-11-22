@@ -4,7 +4,8 @@
 yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* delimiters & subscriber count */
 ytd-grid-channel-renderer #thumbnail-attribution, /* subscriber count */
 
-/*** SEARCH ***/
+/*** SEARCH/SHOPPING ***/
+/* primary */
 ytd-channel-renderer #metadata :is(#dot, #dot + span), /* delimiter & subscriber count */
 
 /*** WATCH ***/

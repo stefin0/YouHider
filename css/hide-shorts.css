@@ -6,7 +6,8 @@ ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* shorts sec
 /*** SHORTS ***/
 ytd-shorts, /* shorts */
 
-/*** SEARCH ***/
+/*** SEARCH/SHOPPING ***/
+/* primary */
 grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts grid */ 
 ytd-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
 ytd-grid-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
